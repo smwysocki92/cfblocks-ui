@@ -1,0 +1,12 @@
+<div class="container-fluid h-100 user-profile-backdrop">
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-danger btn-sm ml-3" (click)="logout()">Log Out</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-6 offset-lg-3">
+      <app-user-profile-card [user]="user"></app-user-profile-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.search-input {
+  border-top-right-radius: 0!important;
+  border-bottom-right-radius: 0!important;
+  border-top-left-radius: 50rem!important;
+  border-bottom-left-radius: 50rem!important;
+}
+.search-input:focus {
+  box-shadow: none!important;
+  border-bottom: none!important;
+}
+.search-btn {
+  border-top-left-radius: 0!important;
+  border-bottom-left-radius: 0!important;
+  border-top-right-radius: 50rem!important;
+  border-bottom-right-radius: 50rem!important;
+}
+.filter-btn {
+  border-radius: .3em;
+}

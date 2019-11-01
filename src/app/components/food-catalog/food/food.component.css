@@ -1,0 +1,11 @@
+.food-image {
+  width: 30%;
+}
+.food-image:after {
+  content: "";
+  padding-bottom: 100%;
+}
+/*.food-image img {
+  clip-path: circle(50% at center);
+}*/
+

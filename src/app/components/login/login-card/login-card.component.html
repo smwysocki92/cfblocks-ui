@@ -1,0 +1,41 @@
+<div class="card z-depth-3">
+    <div class="card-body">
+      <p class="h4 mb-4 text-center">Login</p>
+      <form class="form" role="form" [formGroup]="account" (ngSubmit)="onSubmit()">
+        <div class="md-form form-sm">
+          <mdb-icon fas icon="user" size="sm" class="prefix"></mdb-icon>
+          <input mdbInput mdbValidate type="text" id="username" class="form-control" formControlName="username">
+          <label for="username" class="">&nbsp;Email</label>
+          <mdb-error *ngIf="username.invalid && (username.dirty || username.touched)">Email is Invalid</mdb-error>
+          <mdb-success *ngIf="username.valid && (username.dirty || username.touched)">Email is valid</mdb-success>
+        </div>
+        <div class="md-form form-sm">
+          <i class="fas fa-key prefix"></i>
+          <input mdbInput mdbValidate type="password" id="password" class="form-control" formControlName="password">
+          <label for="password" class="">&nbsp;Password</label>
+          <mdb-error *ngIf="password.invalid && (password.dirty || password.touched)">Password must contain at least one letter, one number, and longer than six charaters.</mdb-error>
+          <mdb-success *ngIf="password.valid && (password.dirty || password.touched)">Password is valid</mdb-success>
+        </div>
+        <div class="row" *ngIf="!!errorMessage && !(username.invalid || password.invalid)">
+          <p class="text-center text-danger">
+            {{errorMessage}}
+          </p>
+        </div>
+        <!-- Remember Me -->
+        <div class="ml-3">
+          <mdb-checkbox formControlName="rememberme" id="rememberme"><b>Remember Me?</b></mdb-checkbox>
+        </div>
+
+        <!-- Sign up button -->
+        <button mdbBtn color="info" block="true" rounded="true" gradient="aqua" class="my-4 waves-effect z-depth-1.5" type="submit" mdbWavesEffect>Login <i class="fas fa-arrow-right"></i></button>
+        <div class="row">
+          <div class="col text-left">
+            <a [routerLink]="['/signup']">Sign Up Here!</a>
+          </div>
+          <div class="col text-right">
+            <a [routerLink]="['/forgot-password']">Forgot Password?</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

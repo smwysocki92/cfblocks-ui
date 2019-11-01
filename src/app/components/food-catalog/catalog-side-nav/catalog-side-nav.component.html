@@ -1,0 +1,18 @@
+<div class="food-catalog-side-nav default-color-dark">
+  <div class="row no-gutters">
+    <div class="col-12" *ngFor="let option of options">
+      <div class="view overlay pointer" (click)="selectOption(option);">
+        <div class="d-flex flex-column align-items-center p-2" [ngClass]="{'active default-color': option?.name === active().display}">
+          <div *ngIf="option?.icon">
+            <mdb-icon fas [icon]="option?.icon" size="2x"></mdb-icon>
+          </div>
+          <div>
+            <p class="mb-0">{{ option?.name }}</p>
+          </div>
+        </div>
+        <div class="mask flex-center rgba-green-slight"></div>
+      </div>
+      <hr class="my-0"/>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="row no-gutters">
+  <div class="col">
+    <div class="badge badge-pill orange darken-4 waves-effect m-1 px-2 py-1" *ngFor="let filter of filters">
+      {{filter?.type}}: {{'"' + filter?.display + '"'}} <mdb-icon fas icon="times" size="xs" class="" size="sm" (click)="rmFilter(filter)"></mdb-icon>
+    </div>
+  </div>
+</div>

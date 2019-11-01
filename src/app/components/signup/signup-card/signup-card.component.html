@@ -1,0 +1,64 @@
+<div class="card z-depth-3">
+  <div class="card-body">
+    <p class="h4 mb-4 text-center">Sign up</p>
+    <form class="form" role="form" [formGroup]="account" (ngSubmit)="onSubmit()">
+      <!-- <div class="form-row">
+        <div class="col">
+          <div class="md-form">
+            <input mdbInput mdbValidate type="text" id="firstName" class="form-control" formControlName="firstName">
+            <label for="firstName" class="">&nbsp;First Name</label>
+            <mdb-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">First Name is required!</mdb-error>
+            <mdb-success *ngIf="firstName.valid && (firstName.dirty || firstName.touched)">First Name valid</mdb-success>
+          </div>
+        </div>
+        <div class="col">
+          <div class="md-form">
+            <input mdbInput mdbValidate type="text" id="lastName" class="form-control" formControlName="lastName">
+            <label for="lastName" class="">&nbsp;Last Name</label>
+            <mdb-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">Last Name is required!</mdb-error>
+            <mdb-success *ngIf="lastName.valid && (lastName.dirty || lastName.touched)">Last name is valid</mdb-success>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <div class="md-form">
+              <input mdbInput mdbValidate type="date" id="dob" class="form-control" formControlName="dob">
+              <label for="dob" class="">&nbsp;Date of Birth</label>
+              <mdb-error *ngIf="dob.invalid && (dob.dirty || dob.touched)">Date Of Birth is Invalid</mdb-error>
+              <mdb-success *ngIf="dob.valid && (dob.dirty || dob.touched)">Date of Birth is valid</mdb-success>
+          </div>
+        </div>
+      </div> -->
+          <div class="md-form form-sm">
+            <!-- <i class="fas fa-user prefix"></i> -->
+            <mdb-icon fas icon="user" size="sm" class="prefix"></mdb-icon>
+            <input mdbInput mdbValidate type="text" id="username" class="form-control" formControlName="username">
+            <label for="username" class="">&nbsp;Email</label>
+            <mdb-error *ngIf="username.invalid && (username.dirty || username.touched)">Email is Invalid</mdb-error>
+            <mdb-success *ngIf="username.valid && (username.dirty || username.touched)">Email is valid</mdb-success>
+          </div>
+          <div class="md-form form-sm">
+            <i class="fas fa-key prefix"></i>
+            <input mdbInput mdbValidate type="password" id="password" class="form-control" formControlName="password">
+            <label for="password" class="">&nbsp;Password</label>
+            <mdb-error *ngIf="password.invalid && (password.dirty || password.touched)">Password must contain at least one letter, one number, and longer than six charaters.</mdb-error>
+            <mdb-success *ngIf="password.valid && (password.dirty || password.touched)">Password is valid</mdb-success>
+          </div>
+      <div class="row" *ngIf="!!errorMessage && !(username.invalid || password.invalid)">
+        <p class="text-center text-danger">
+          {{errorMessage}}
+        </p>
+      </div>
+
+      <!-- Sign up button -->
+      <button mdbBtn color="info" block="true" rounded="true" gradient="aqua" class="my-4 waves-effect z-depth-1.5" type="submit" mdbWavesEffect>Create Account</button>
+
+      <div class="row">
+          <div class="col text-center">
+            <a routerLink="/login">Already Have An Account? Login Here</a>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

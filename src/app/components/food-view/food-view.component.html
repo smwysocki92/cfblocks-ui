@@ -1,0 +1,15 @@
+<div class="container-fluid h-100 grey lighten-4 mb-5">
+  <div class="row h-100 my-3">
+    <div class="col-md-12 col-lg-7 image-section mb-3">
+      <img [src]="food?.img" *ngIf="food?.img" class="img-fluid w-100" alt="Responsive image"/>
+      <img src="assets/images/favicon.png" *ngIf="!food?.img" class="img-fluid w-100" alt="Default Image"/>
+    </div>
+    <div class="col-md-12 col-lg-5 data-section">
+      <div class="row">
+        <div class="col-12">
+          <app-food-view-card [food]="food"></app-food-view-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

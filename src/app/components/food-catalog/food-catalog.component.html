@@ -1,0 +1,28 @@
+<div class="container-fluid px-0">
+  <div class="d-flex flex-column">
+    <app-food-catalog-search (newSearch)="updateFilter($event)"></app-food-catalog-search>
+    <div class="d-flex flex-row food-display">
+      <app-food-catalog-side-nav [filters]="filters" (selection)="updateFilter($event)" class=""></app-food-catalog-side-nav>
+      <div class="food-container">
+        <div class="row no-gutters">
+          <div class="col-12">
+            <app-food-catalog-filter [filters]="filters" (removeFilter)="removeFilter($event)"></app-food-catalog-filter>
+          </div>
+          <div class="col-12">
+            <div class="collapse" id="filterContainer">
+              <div class="row">
+                <div class="col">
+                  <p>here is some text</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let food of foods; let lastItem = last;" class="col-sm-12 col-md-6 col-lg-4">
+            <app-food [food]="food" (selected)="goToFood($event)"></app-food>
+            <hr class="my-1" *ngIf="!lastItem"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

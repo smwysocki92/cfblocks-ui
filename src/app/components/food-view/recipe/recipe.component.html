@@ -1,0 +1,50 @@
+<div *ngIf="food && food.type === 'Recipe'">
+  <div class="d-flex z-depth-2 flex-column">
+    <div class="d-flex z-depth-2">
+      <button type="button" class="btn btn-link my-1 mx-0 py-1 px-3 border border-top-0 border-bottom-0 border-right-0" mdbWavesEffect (click)="collapseAll()">
+        <mdb-icon fas icon="chevron-down" size="sm" class="black-text"></mdb-icon>&nbsp;{{food?.name}} Recipe
+        <!-- <mdb-icon fas icon="cheveron-up" size="sm" class="black-text" *ngIf="!expanded()"></mdb-icon> -->
+      </button>
+    </div>
+    <div class="d-flex z-depth-2 flex-column" *ngFor="let ingredient of food?.ingredients; let i=index;">
+      <!-- {{ingredient | json}} -->
+      <!-- <div mdbCollapse *ngIf="ingredient?.food?.type === 'Recipe'" #ingredientRegion="bs-collapse">
+        <app-recipe [food]="ingredient" (foodChange)="modifyFood($event)"></app-recipe>
+      </div> -->
+      <button type="button" mdbBtn class="btn btn-link my-1 mx-0 py-1 px-3 border border-top-0 border-bottom-0 border-right-0" mdbWavesEffect (click)="test.toggle()" *ngIf="ingredient?.food?.type === 'RawFood'">
+        <mdb-icon fas icon="chevron-down" size="sm" class="black-text"></mdb-icon>&nbsp;{{ingredient?.food?.name}}
+      </button>
+
+      <div mdbCollapse #test="bs-collapse">
+        <app-raw-food-ingredient  [ingredient]="ingredient" (ingredientUpdate)="updateIngredient($event)"></app-raw-food-ingredient>
+        <app-recipe-ingredient  [ingredient]="ingredient" (ingredientUpdate)="updateIngredient($event)"></app-recipe-ingredient>
+
+      <!-- <button mdbBtn color="primary" class="waves-light" type="button" (click)="test.toggle()" mdbWavesEffect>
+        Toggle collapse
+      </button>
+      
+      <div class="" mdbCollapse #test="bs-collapse">
+        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+      </div> -->
+
+    </div>
+  </div>
+</div>
+<!-- <button mdbBtn color="primary" class="waves-light" type="button" (click)="test.toggle()" mdbWavesEffect>
+  Toggle collapse
+</button>
+
+<div class="test-all" mdbCollapse #test="bs-collapse">
+  <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
+    keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+</div>
+
+<button mdbBtn color="primary" class="waves-light" type="button" (click)="collapseAll()" mdbWavesEffect>
+    Toggle collapse
+  </button>
+  
+  <div class="test-all" mdbCollapse #test2="bs-collapse">
+    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
+      keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+  </div> -->

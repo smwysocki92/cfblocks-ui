@@ -1,0 +1,28 @@
+<form class="form" role="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="md-form input-group food-search-bar default-color p-2 my-0">
+    <input type="search" class="form-control search-input grey lighten-4" placeholder="Search" aria-label="Search" formControlName="search" aria-describedby="search-btn">
+    <div class="input-group-append">
+      <button mdbBtn class="m-0 px-3 py-2 search-btn grey lighten-4 z-depth-0" type="button" id="search-btn" mdbWavesEffect>
+        <i class="fa fa-search"></i>
+        <span class="sr-only">Search</span>
+      </button>
+      <button mdbBtn class="m-0 ml-2 px-3 py-2 filter-btn default-color-dark white-text" type="button" id="filter-btn" 
+      (click)="toggle()" mdbWavesEffect>
+        <i class="fa fa-filter"></i>
+        <span class="sr-only">Filter Collapse</span>
+      </button>
+      <!-- <button mdbBtn class="m-0 ml-2 px-3 py-2 filter-btn default-color-dark white-text" type="button" id="filter-btn" 
+      (click)="filterContainer.toggle()" mdbWavesEffect>
+        <i class="fa fa-filter"></i>
+        <span class="sr-only">Filter Collapse</span>
+      </button> -->
+    </div>
+  </div>
+  <!-- <div mdbCollapse id="filterContainer" #filterContainer="bs-collapse">
+    <div class="row">
+      <div class="col">
+        <p>here is some text</p>
+      </div>
+    </div>
+  </div> -->
+</form>

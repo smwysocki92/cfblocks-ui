@@ -1,0 +1,38 @@
+<div class="food d-flex align-items-center pointer mx-1 rounded blue-grey lighten-5" (click)="select(food)">
+  <div class="food-image d-flex align-items-center align-self-stretch">
+      <img [src]="food?.img" *ngIf="food?.img" class="img-fluid float-left rounded" alt="Responsive image"/>
+      <img src="assets/images/favicon.png" *ngIf="!food?.img" class="img-fluid float-left rounded" alt="Default Image"/>
+  </div>
+  <div class="pl-1 food-name-serving flex-grow-1">
+    <div class="d-flex flex-column">
+      <div class="food-name text-left">
+        {{food?.name}}
+      </div>
+      <div class="food-serving pl-2 text-left">
+        {{food?.amount | number:'0.0-2'}} {{food?.measurement}}
+      </div>
+    </div>
+  </div>
+  <div class="food-nutrition pr-1">
+    <div class="d-flex flex-column">
+      <div class="food-calories text-right">
+        <b>{{food?.calories | number:'0.0-2'}}</b>
+        <span class="small text-muted">calories</span>
+      </div>
+      <div class="food-cfp d-flex flex-row small text-center">
+        <div class="d-flex flex-column pl-1">
+          <div>{{food?.carbs | number:'0.0-2'}}g</div>
+          <div class="small text-muted">carbs</div>
+        </div>
+        <div class="d-flex flex-column pl-1">
+          <div>{{food?.fats | number:'0.0-2'}}g</div>
+          <div class="small text-muted">fats</div>
+        </div>
+        <div class="d-flex flex-column pl-1">
+          <div>{{food?.protein | number:'0.0-2'}}g</div>
+          <div class="small text-muted">protein</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="card z-depth-1 mb-3">
+  <div class="card-body">
+    <div class="d-flex flex-row">
+      <div class="flex-fill">
+        <h4 class="mb-0">{{food?.name}}</h4>
+      </div>
+      <div class="d-flex justify-content-end align-items-start">
+        <div class="badge badge-pill orange darken-4 waves-effect m-1 px-2 py-1 text-white">Grain</div>
+        <div class="badge badge-pill orange darken-4 waves-effect m-1 px-2 py-1 text-white">Dairy</div>
+        <div class="badge badge-pill orange darken-4 waves-effect m-1 px-2 py-1 text-white" *ngFor="let tag of food?.tags">{{tag}}</div>
+      </div>
+    </div>
+
+    <p class="lead">
+      <span class="small">Description: </span><br/>
+      {{food?.description || 'No description provided'}}
+    </p>
+  </div>
+</div>
+<div class="card z-depth-3">
+  <div class="card-body">
+    <div class="z-depth-1 d-flex justify-content-between">
+      <div class="d-flex justify-content-start">
+        <button type="button" class="btn btn-link my-1 mx-0 py-1 px-3 border border-top-0 border-bottom-0 border-left-0" data-toggle="tooltip" title="Refresh" (click)="refresh()">
+          <mdb-icon fas icon="sync" size="sm" class="grey-text"></mdb-icon>
+        </button>
+        <button type="button" class="btn btn-link my-1 mx-0 py-1 px-3 border border-top-0 border-bottom-0 border-right-0" data-toggle="tooltip" title="Toggle" *ngIf="food?.ingredients" (click)="toggleRecipe()">
+          <mdb-icon fas icon="exchange-alt" size="sm" class="grey-text"></mdb-icon>
+        </button>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-link my-1 mx-0 py-1 px-3 border border-top-0 border-bottom-0 border-left-0" data-toggle="tooltip" title="Edit" (click)="edit(food?.id)">
+          <mdb-icon fas icon="pencil-alt" size="sm" class="grey-text"></mdb-icon>
+        </button>
+        <button type="button" class="btn btn-link my-1 mx-0 py-1 px-3 border border-top-0 border-bottom-0" data-toggle="tooltip" title="Copy" (click)="copy(food?.id)">
+          <mdb-icon fas icon="clone" size="sm" class="grey-text"></mdb-icon>
+        </button>
+        <button type="button" class="btn btn-link my-1 mx-0 py-1 px-3 border border-top-0 border-bottom-0 border-right-0" data-toggle="tooltip" title="Delete" (click)="delete(food?.id)">
+          <mdb-icon fas icon="times" size="sm" class="red-text"></mdb-icon>
+        </button>
+      </div>
+    </div>
+    <div class="form-row">
+      <!-- <div class="col-auto d-flex align-items-center">Serving:&nbsp;</div> -->
+      <div class="col-2">
+        <!-- <input type="number" placeholder="Amount" [(ngModel)]="servingAmount" class="form-control form-control-sm"/> -->
+        <div class="md-form form-sm">
+          <input mdbInput type="number" id="servingAmount" class="form-control form-control-sm" [(ngModel)]="servingAmount">
+          <label for="servingAmount">&nbsp;Serving</label>
+        </div>
+      </div>
+      <div class="col-4 d-flex align-items-center">
+        {{food?.measurement}}
+      </div>
+      <div class="col d-flex align-items-center justify-content-end">
+        {{calculate(food?.calories) | number:'0.0-2'}}<span class="small text-muted">&nbsp;Calories</span>
+      </div>
+    </div>
+    <div class="d-flex flex-row justify-content-around">
+      <div>
+        {{calculate(food?.carbs) | number:'0.0-2'}}g<span class="small text-muted">&nbsp;Carbs</span>
+      </div>
+      <div>
+        {{calculate(food?.fats) | number:'0.0-2'}}g<span class="small text-muted">&nbsp;Fats</span>
+      </div>
+      <div>
+        {{calculate(food?.protein) | number:'0.0-2'}}g<span class="small text-muted">&nbsp;Protein</span>
+      </div>
+    </div>
+    <app-recipe [food]="food" (foodChange)="modifyFood($event)"></app-recipe>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.user-profile-backdrop {
+  background-image: url('/assets/images/pexels-photo-917494.jpeg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.user-profile-scrollspy {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+}

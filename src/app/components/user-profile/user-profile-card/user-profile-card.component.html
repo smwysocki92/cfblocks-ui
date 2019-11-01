@@ -1,0 +1,67 @@
+<div class="card z-depth-3 mt-5">
+    <div class="card-body">
+      <h4 class="text-center">
+        <strong>My Profile</strong>
+      </h4>
+      <form class="form" role="form" [formGroup]="profile" (ngSubmit)="onSubmit()">
+        <h5 class="m-0">General Information</h5>
+        <hr class="mt-0 mb-1"/>
+        <div class="form-row">
+          <div class="col-md-12 col-lg-6">
+            <div class="md-form form-sm">
+              <input mdbInput mdbValidate type="text" id="username" class="form-control" formControlName="username">
+              <label for="username" class="">&nbsp;Username</label>
+              <mdb-error *ngIf="username.invalid && (username.dirty || firstName.touched)">Username is required!</mdb-error>
+              <mdb-success *ngIf="username.valid && (username.dirty || firstName.touched)">Username valid</mdb-success>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6">
+            <div class="md-form form-sm">
+              <input mdbInput mdbValidate type="text" id="email" class="form-control" formControlName="email">
+              <label for="email" class="">&nbsp;Email</label>
+              <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">Email is required!</mdb-error>
+              <mdb-success *ngIf="email.valid && (email.dirty || email.touched)">Email is valid</mdb-success>
+            </div>
+          </div>
+        </div>
+        <div class="md-form form-sm mt-0">
+          <label class="control-label">
+            <b>Forgot Your Password? </b><button type="button" class="btn btn-danger btn-sm ml-3" [routerLink]="['/reset-password']">Reset Password</button>
+          </label>
+        </div>
+        <div class="form-row">
+          <div class="col-md-12 col-lg-6">
+            <div class="md-form form-sm">
+              <input mdbInput mdbValidate type="text" id="firstName" class="form-control" formControlName="firstName">
+              <label for="firstName" class="">&nbsp;First Name</label>
+              <mdb-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">First Name is required!</mdb-error>
+              <mdb-success *ngIf="firstName.valid && (firstName.dirty || firstName.touched)">First Name valid</mdb-success>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6">
+            <div class="md-form form-sm">
+              <input mdbInput mdbValidate type="text" id="lastName" class="form-control" formControlName="lastName">
+              <label for="lastName" class="">&nbsp;Last Name</label>
+              <mdb-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">Last Name is required!</mdb-error>
+              <mdb-success *ngIf="lastName.valid && (lastName.dirty || lastName.touched)">Last name is valid</mdb-success>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <div class="md-form form-sm">
+              <input mdbInput mdbValidate type="date" id="dob" class="form-control" formControlName="dob">
+              <label for="dob" class="">&nbsp;Date of Birth</label>
+              <mdb-error *ngIf="dob.invalid && (dob.dirty || dob.touched)">Date Of Birth is Invalid</mdb-error>
+              <mdb-success *ngIf="dob.valid && (dob.dirty || dob.touched)">Date of Birth is valid</mdb-success>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <button type="submit" class="btn btn-block btn-sm btn-primary">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
